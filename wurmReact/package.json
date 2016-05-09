@@ -1,0 +1,42 @@
+{
+  "name": "eMazon-Me",
+  "version": "1.0.0",
+  "description": "it's a real sweet app",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo . -d --serve bundle.js --live",
+    "build": "browserify . -o bundle.js -g uglifyify",
+    "test": "browserify test.js | node | tap-spec",
+    "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css,jpg,png} dist'",
+    "push": "gh-pages -d dist",
+    "deploy": "npm run build && npm run dist && npm run push"
+  },
+  "browserify": {
+    "transform": ["babelify"]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/author/eMazon-Me"
+  },
+  "author": "author",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/author/eMazon-Me/issues"
+  },
+  "homepage": "https://github.com/author/eMazon-Me",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "budo": "^8.2.0",
+    "gh-pages": "^0.11.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.7.0"
+  }
+}
